@@ -1,0 +1,13 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Google Trends Scraper output",
+    "description": "One dataset item per keyword or comparison, and one per trending search.",
+    "properties": {
+        "results": {
+            "type": "string",
+            "title": "Trends data",
+            "description": "Keyword rows with interest over time, averages, peak, change, interest by region and related queries; trending rows with title, traffic and news. Lines that could not be read appear with ok=false and a reason, and are not charged.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        }
+    }
+}

@@ -1,0 +1,328 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "type": "object",
+        "properties": {
+            "ok": {
+                "type": "boolean",
+                "title": "OK",
+                "description": "False rows are keywords or feeds that could not be read, with the reason in error. They are not charged."
+            },
+            "type": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Row type",
+                "description": "keyword (a keyword or comparison) or trending (a daily trending search)."
+            },
+            "keyword": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Keyword",
+                "description": "The keyword, or the compared terms joined with \" vs \"."
+            },
+            "terms": {
+                "type": "array",
+                "title": "Terms",
+                "description": "The compared terms; one item for a single keyword."
+            },
+            "geo": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Region",
+                "description": "Country or region code, or worldwide."
+            },
+            "timeRange": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Time range",
+                "description": "As sent to Google Trends, e.g. today 12-m or 2025-01-01 2025-06-30."
+            },
+            "category": {
+                "type": [
+                    "integer",
+                    "null"
+                ],
+                "title": "Category",
+                "description": "Google Trends category id; 0 is all categories."
+            },
+            "property": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Search type",
+                "description": "web, images, news, froogle (Shopping) or youtube."
+            },
+            "url": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Google Trends page",
+                "description": "The same query on trends.google.com."
+            },
+            "interestOverTime": {
+                "type": "array",
+                "title": "Interest over time",
+                "description": "One point per day, week or month: date (ISO), label, value (first term, 0-100), values (every term), isPartial (the running period)."
+            },
+            "averages": {
+                "type": [
+                    "object",
+                    "null"
+                ],
+                "title": "Averages",
+                "description": "Average interest per term over the range."
+            },
+            "peakDate": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Peak date",
+                "description": "When the first term peaked."
+            },
+            "peakValue": {
+                "type": [
+                    "number",
+                    "null"
+                ],
+                "title": "Peak",
+                "description": "The first term's highest value (100 unless compared with a bigger term)."
+            },
+            "latestValue": {
+                "type": [
+                    "number",
+                    "null"
+                ],
+                "title": "Latest",
+                "description": "The first term's latest complete value."
+            },
+            "changePercent": {
+                "type": [
+                    "number",
+                    "null"
+                ],
+                "title": "Change %",
+                "description": "Average of the last quarter of the range against the first quarter, for the first term."
+            },
+            "interestByRegion": {
+                "type": "array",
+                "title": "Interest by region",
+                "description": "geoCode, geoName, value (first term) and values (every term), highest first. Countries worldwide; states or regions within a country."
+            },
+            "relatedQueries": {
+                "type": "array",
+                "title": "Related queries",
+                "description": "term, kind (top or rising), query, value, formattedValue (\"+250%\" or \"Breakout\" for rising), link."
+            },
+            "missingSections": {
+                "type": "array",
+                "title": "Missing sections",
+                "description": "Sections Google would not return after retries. A row with any is written but not charged."
+            },
+            "partial": {
+                "type": [
+                    "boolean",
+                    "null"
+                ],
+                "title": "Partial",
+                "description": "True when a section is missing; such rows are free."
+            },
+            "rank": {
+                "type": [
+                    "integer",
+                    "null"
+                ],
+                "title": "Rank",
+                "description": "Position in the trending feed."
+            },
+            "title": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Trending search",
+                "description": "The trending search as Google shows it."
+            },
+            "approxTraffic": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Traffic",
+                "description": "Google's approximate search count, e.g. 2000+."
+            },
+            "approxTrafficMin": {
+                "type": [
+                    "integer",
+                    "null"
+                ],
+                "title": "Traffic (number)",
+                "description": "The same as a number: 2000+ is 2000, 10K+ is 10000."
+            },
+            "publishedAt": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Trending since",
+                "description": "When Google listed it (ISO 8601)."
+            },
+            "picture": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Picture",
+                "description": "Image Google shows with the trend, when there is one."
+            },
+            "pictureSource": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Picture source",
+                "description": "Where the picture comes from."
+            },
+            "news": {
+                "type": "array",
+                "title": "News",
+                "description": "Articles Google links to the trend: title, url, source, picture."
+            },
+            "input": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Input",
+                "description": "The input line that could not be read."
+            },
+            "error": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Error",
+                "description": "Why it could not be read."
+            },
+            "scrapedAt": {
+                "type": "string",
+                "title": "Scraped at",
+                "description": "ISO 8601."
+            }
+        }
+    },
+    "views": {
+        "overview": {
+            "title": "Keywords",
+            "transformation": {
+                "fields": [
+                    "keyword",
+                    "geo",
+                    "timeRange",
+                    "averages",
+                    "peakValue",
+                    "peakDate",
+                    "latestValue",
+                    "changePercent",
+                    "url",
+                    "partial",
+                    "error"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "keyword": {
+                        "label": "Keyword"
+                    },
+                    "geo": {
+                        "label": "Region"
+                    },
+                    "timeRange": {
+                        "label": "Time range"
+                    },
+                    "averages": {
+                        "label": "Averages"
+                    },
+                    "peakValue": {
+                        "label": "Peak",
+                        "format": "number"
+                    },
+                    "peakDate": {
+                        "label": "Peak date",
+                        "format": "date"
+                    },
+                    "latestValue": {
+                        "label": "Latest",
+                        "format": "number"
+                    },
+                    "changePercent": {
+                        "label": "Change %",
+                        "format": "number"
+                    },
+                    "url": {
+                        "label": "Google Trends page",
+                        "format": "link"
+                    },
+                    "partial": {
+                        "label": "Partial"
+                    },
+                    "error": {
+                        "label": "Error"
+                    }
+                }
+            }
+        },
+        "trending": {
+            "title": "Trending now",
+            "transformation": {
+                "fields": [
+                    "geo",
+                    "rank",
+                    "title",
+                    "approxTraffic",
+                    "publishedAt",
+                    "news",
+                    "error"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "geo": {
+                        "label": "Region"
+                    },
+                    "rank": {
+                        "label": "Rank"
+                    },
+                    "title": {
+                        "label": "Trending search"
+                    },
+                    "approxTraffic": {
+                        "label": "Traffic"
+                    },
+                    "publishedAt": {
+                        "label": "Trending since",
+                        "format": "date"
+                    },
+                    "news": {
+                        "label": "News"
+                    },
+                    "error": {
+                        "label": "Error"
+                    }
+                }
+            }
+        }
+    }
+}

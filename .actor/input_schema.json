@@ -1,0 +1,152 @@
+{
+    "title": "Google Trends Scraper input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "keywords": {
+            "title": "Keywords",
+            "type": "array",
+            "editor": "stringList",
+            "description": "One per line. Compare up to 5 terms on one line with \"vs\": chatgpt vs gemini vs claude. Each line returns interest over time, interest by region and related queries. Also accepts \"searchTerms\" and \"keyword\".",
+            "prefill": [
+                "coffee",
+                "chatgpt vs gemini"
+            ]
+        },
+        "geo": {
+            "title": "Country or region",
+            "type": "string",
+            "editor": "textfield",
+            "description": "Two-letter country code (US, GB, DE) or region code (US-CA). Empty for worldwide.",
+            "default": "",
+            "prefill": "US"
+        },
+        "timeRange": {
+            "title": "Time range",
+            "type": "string",
+            "editor": "select",
+            "enum": [
+                "now 1-H",
+                "now 4-H",
+                "now 1-d",
+                "now 7-d",
+                "today 1-m",
+                "today 3-m",
+                "today 12-m",
+                "today 5-y",
+                "all"
+            ],
+            "enumTitles": [
+                "Past hour",
+                "Past 4 hours",
+                "Past day",
+                "Past 7 days",
+                "Past 30 days",
+                "Past 90 days",
+                "Past 12 months",
+                "Past 5 years",
+                "2004 to present"
+            ],
+            "description": "Past hour to 2004-present. Shorter ranges give hourly or daily points, longer ones weekly or monthly.",
+            "default": "today 12-m"
+        },
+        "customTimeRange": {
+            "title": "Custom time range",
+            "type": "string",
+            "editor": "textfield",
+            "description": "Overrides the time range: \"2025-01-01 2025-06-30\".",
+            "default": ""
+        },
+        "category": {
+            "title": "Category id",
+            "type": "integer",
+            "minimum": 0,
+            "description": "Google Trends category id, e.g. 71 Food & Drink, 5 Computers & Electronics. 0 is all categories.",
+            "default": 0
+        },
+        "property": {
+            "title": "Search type",
+            "type": "string",
+            "editor": "select",
+            "enum": [
+                "",
+                "images",
+                "news",
+                "froogle",
+                "youtube"
+            ],
+            "enumTitles": [
+                "Web search",
+                "Image search",
+                "News search",
+                "Google Shopping",
+                "YouTube search"
+            ],
+            "description": "Which Google search the interest is measured on.",
+            "default": ""
+        },
+        "includeRegions": {
+            "title": "Interest by region",
+            "type": "boolean",
+            "description": "Countries worldwide, or states and regions within a country.",
+            "default": true
+        },
+        "includeRelatedQueries": {
+            "title": "Related queries",
+            "type": "boolean",
+            "description": "Top and rising related searches for each term.",
+            "default": true
+        },
+        "trendingNowGeos": {
+            "title": "Trending now: countries",
+            "type": "array",
+            "editor": "stringList",
+            "sectionCaption": "Trending now",
+            "description": "Country codes (US, GB, IN...). Returns what is trending in Google Search there right now, with approximate traffic and linked news. Works with or without keywords.",
+            "default": [],
+            "prefill": [
+                "US"
+            ]
+        },
+        "language": {
+            "title": "Language",
+            "type": "string",
+            "editor": "textfield",
+            "sectionCaption": "Advanced",
+            "description": "Language for query and region names, e.g. en-US, de, fr.",
+            "default": "en-US"
+        },
+        "maxItems": {
+            "title": "Max results",
+            "type": "integer",
+            "minimum": 0,
+            "description": "Stop after this many charged rows. 0 means no limit.",
+            "default": 0
+        },
+        "minDelaySecs": {
+            "title": "Minimum delay between requests (seconds)",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30,
+            "description": "Google Trends limits requests per IP. The Actor waits at least this long between requests and slows down by itself when Google pushes back.",
+            "default": 2
+        },
+        "timeoutSecs": {
+            "title": "Request timeout (seconds)",
+            "type": "integer",
+            "minimum": 5,
+            "maximum": 120,
+            "description": "Per request.",
+            "default": 30
+        },
+        "proxyConfiguration": {
+            "title": "Proxy",
+            "type": "object",
+            "editor": "proxy",
+            "description": "Not needed. Your own proxies can make very large runs faster, since Google's limit is per IP.",
+            "default": {
+                "useApifyProxy": false
+            }
+        }
+    }
+}

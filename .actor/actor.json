@@ -1,0 +1,17 @@
+{
+    "actorSpecification": 1,
+    "name": "google-trends-scraper",
+    "title": "Google Trends Scraper - Interest, Regions, Related & Trending",
+    "description": "Google Trends without a browser: interest over time, interest by region and related queries for keywords and comparisons (\"chatgpt vs gemini\"), plus today's trending searches by country. Paces itself so runs finish instead of failing. No login.",
+    "version": "1.0",
+    "buildTag": "latest",
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 512,
+    "input": "./input_schema.json",
+    "output": "./output_schema.json",
+    "dockerfile": "../Dockerfile",
+    "readme": "../README.md",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    }
+}
