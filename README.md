@@ -1,7 +1,5 @@
 # Google Trends Scraper - Interest, Regions, Related & Trending
 
-**Run it on Apify: [apify.com/clearfetch/google-trends-scraper](https://apify.com/clearfetch/google-trends-scraper)**
-
 Get Google Trends data for any list of keywords without a browser: interest over time, interest by country or
 state, and top and rising related queries, for single keywords or comparisons of up to five terms
 ("chatgpt vs gemini"). It also returns what is trending in Google Search right now in any country. **$3 per 1,000
@@ -114,6 +112,10 @@ too little search data for this query in this region and time range`. Those rows
 - Lines that fail, keywords without enough search data, and rows where Google withheld a section after all retries
   (`partial: true`) are never charged.
 
+Paid Apify plans pay less: 10% off on Bronze, 20% on Silver and 30% on Gold and higher tiers.
+
+Apify also charges a run-start fee of $0.00005 per started GB of allocated memory (minimum one event), including runs that produce no chargeable results.
+
 ## Use cases
 
 - **SEO and content planning**: which topics are rising, which related queries are breaking out, where interest is
@@ -146,6 +148,12 @@ are responsible for how you use it.
 
 Run it from the Apify API or a client library, schedule it in Apify Console, or connect it to n8n, Make, Zapier or
 any MCP client through Apify's integrations. Results are available as JSON, CSV, Excel and through the dataset API.
+
+## More tools from clearfetch
+
+- [TikTok Scraper](https://apify.com/clearfetch/tiktok-scraper): hashtags, profiles, sounds and video stats in one Actor
+- [Website Sitemap Extractor](https://apify.com/clearfetch/website-sitemap-extractor): every URL of a website from its sitemaps, from just the domain
+- [ATS Jobs Scraper](https://apify.com/clearfetch/ats-jobs-scraper): every open job from company careers pages on Greenhouse, Lever, Ashby, Workday and more
 
 ## Changelog
 
